@@ -5,6 +5,30 @@ __license__ = "Cecill-C"
 __revision__ = " $Id: actor.py 1586 2009-01-30 15:56:25Z cokelaer $ "
 __docformat__ = 'reStructuredText'
 
+class User(object):
+  """This class is represent a user with age and name
+  :Example:
+
+    >>> import testDocsPy
+    >>> a = testDocsPy.User()
+    >>> print a
+    Name: Mark
+    Age: 21
+
+    >>> import testDocsPy
+    >>> a = testDocsPy.User("Gogo", 12)
+    >>> print a
+    Name: Gogo
+    Age: 12
+
+  """
+  def __init__(self, name = "Mark", age = 21):
+    self.name = name
+    self.age = age
+  def __repr__(self):
+    return ("Name: {}\nAge: {}").format(self.name, self.age)
+    
+  
 
 class MainClass1(object):
     """This class docstring shows how to use sphinx and rst syntax
@@ -70,6 +94,7 @@ class MainClass1(object):
       :type arg2: int, float,...
       :returns: arg1 + arg2
       :rtype: int, float
+
       :Example:
 
         >>> import testDocsPy
@@ -84,7 +109,8 @@ class MainClass1(object):
         .. warning:: arguments should be not string
         .. todo:: check that arg1 or arg2 is not strings
         """
-      return arg1 + arg2 + 1
+      return arg1 + arg2
+
     def function1(self, arg1, arg2, arg3):
         """returns (arg1 / arg2) + arg3
 
@@ -120,3 +146,5 @@ class MainClass1(object):
 if __name__ == "__main__":
   import doctest
   doctest.testmod()
+  a = User("Gogo", 12)
+  print a
